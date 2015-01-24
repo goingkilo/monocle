@@ -1,4 +1,7 @@
-appengine-skeleton
+monocle
 =============================
 
-This is a generated application from the appengine-skeleton archetype.
+skeleton
+java datastore
+REST apis ? then do we need DAO ?
+groovy/clojure script interface ! avoid java as much
