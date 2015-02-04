@@ -1,0 +1,49 @@
+		img { width:200px;height:200px; float:left;}
+		#holding {
+			width:400px;
+			height:500px;
+			margin-left:400px;
+		}
+		#hexagram {
+			max-width:120px;
+			margin-left:10px;
+			width:120px;
+			border-color:#000000;
+			border-style:solid;
+			float:right;
+		}
+		#yang {
+			display:block;
+			margin-left:10px;
+			background-color:#000000;
+			width:100px;
+			height:10px;
+			
+		}
+		#yang-moving {
+			display:block;
+			margin-left:10px;
+			background-color:#4c4c4c;
+			width:100px;
+			height:10px;
+		}
+		#yin {
+			display:block;
+			margin-left:40px;
+			background-color:#ffffff;
+			width:20px;
+			height:10px;
+			
+		}
+		#yin-moving {
+			display:block;
+			margin-left:40px;
+			background-color:#ffffff;
+			width:20px;
+			height:10px;
+		}
+		#gap {
+			margin-left:10px;
+			width:150px;
+			height:10px;
+		}

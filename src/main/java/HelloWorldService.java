@@ -11,7 +11,7 @@ public class HelloWorldService {
 	@GET
 	@Path("/new/{name}")
 	public Response f1(@PathParam("name") String msg) {
-		String output = "create new notebook with name :"+msg";
+		String output = "create new notebook with name :"+msg;
 		return Response.status(200).entity(output).build();
 	}
 
