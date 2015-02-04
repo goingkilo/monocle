@@ -1,7 +1,10 @@
 monocle
 =============================
 
-skeleton
-java datastore
-REST apis ? then do we need DAO ?
-groovy/clojure script interface ! avoid java as much
+a map with your favorite places on it !
+your daily morning iching reading
+your collection of notes on the interweb !
+set of your own pages  on the internet
+
+
+
