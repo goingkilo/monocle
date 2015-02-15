@@ -1,0 +1,44 @@
+<html>
+<head>
+<link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+</head>
+
+<body>
+
+<script src="script/jquery.js"></script>
+<script src="script/jquery.blockUI.js"></script>
+<script>
+
+  	var clickSnd = new Audio("typewriter.wav");
+
+	$('document').ready( function (){
+		$('textarea').keyup( function (e) {
+			console.log('in here ' + e);
+			clickSnd.play();	
+			e.stopPropagation();
+			//$.blockUI();
+			//$.unblockUI();
+		});
+	});
+	
+</script>
+
+
+	<form action="/todoServlet" method="post">
+		<div>
+			<textarea name="item" rows="3" cols="60"></textarea>
+		</div>
+		<div>
+			<input type="submit" value="Add" />
+		</div>
+	</form>
+	<div id='unit'>
+		<p> 
+		  more more more
+		</p>
+	</div>
+
+
+</body>
+</html>
+<%-- //[END all]--%>
