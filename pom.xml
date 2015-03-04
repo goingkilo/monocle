@@ -8,6 +8,13 @@
     <groupId>com.monocle.notes</groupId>
     <artifactId>monocle</artifactId>
 
+<repositories>
+  <repository>
+    <id>my-local-repo</id>
+    <url>file://${basedir}/repo</url>
+  </repository>
+</repositories>
+
     <properties>
         <appengine.app.version>1</appengine.app.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -54,6 +61,13 @@
             <version>1.9.17</version>
             <scope>test</scope>
         </dependency>
+
+<dependency>
+  <groupId>sisc</groupId>
+  <artifactId>scheme</artifactId>
+  <version>1.0.1</version>
+</dependency>
+
     </dependencies>
 
     <build>

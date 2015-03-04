@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.6.5
+Created-By: 1.6.0-b105 (Sun Microsystems Inc.)
+Main-Class: sisc.REPL
+
+Name: sisc/
+Specification-Title: Second Interpreter of Scheme Code
+Specification-Version: 1.16.6
+Specification-Vendor: SISC Development Group
+Implementation-Title: sisc
+Implementation-Version: 1.16.6
+Implementation-Vendor: SISC Development Group
+

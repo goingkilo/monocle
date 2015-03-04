@@ -3,6 +3,10 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,8 +26,33 @@ public class TodoServlet extends HttpServlet {
 	private static final String KIND_TODOLIST_ITEM = "todolistitem";
 
 	@Override
+	public void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws IOException {
+		String qs = req.getQueryString();
+		switch(qs) {
+			case "json":
+				returnJSON(req,resp);
+				break;
+			default:
+				doPost(req,resp);
+		}
+	}
+
+	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
+		handleNotes(req,resp);
+
+	}
+
+	public void returnJSON(HttpServletRequest req, HttpServletResponse resp)
+                        throws IOException {
+		PrintWriter out = resp.getWriter();
+		out.write( "[{'message':'hello world'}]" );
+	}
+	
+	public void handleNotes(HttpServletRequest req, HttpServletResponse resp)
+                        throws IOException {
 
 		this.getServletContext().log( "[xxxxx] begin");
 		String item = req.getParameter("item");
@@ -48,4 +77,3 @@ public class TodoServlet extends HttpServlet {
 		resp.sendRedirect("/todo.jsp");
 	}
 }
-//[END all]

@@ -1,0 +1,68 @@
+/*
+
+SISC SCHEME MODIFIES THREAD DURING ITS INIT
+GAE DOES NOT ALLOW THAT
+*/
+import java.util.*;
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+import sisc.data.SchemeString;
+import sisc.interpreter.AppContext;
+import sisc.interpreter.Context;
+import sisc.interpreter.Interpreter;
+import sisc.ser.BufferedRandomAccessInputStream;
+import sisc.ser.SeekableDataInputStream;
+
+public class ScytheServlet extends HttpServlet {
+
+	Interpreter interpreter;
+
+
+	@Override
+	public void init(ServletConfig config) {
+		ServletContext scontext = config.getServletContext();
+		String heapPath = scontext.getRealPath("/WEB-INF/sisc.hp");
+
+
+		try {
+		AppContext context = new AppContext();
+		interpreter = Context.enter(context);
+		context.loadEnv(
+				new SeekableDataInputStream(
+						new BufferedRandomAccessInputStream(
+								heapPath, "r")));
+
+			scontext.log( "(()) initialization successful" );
+		}
+		catch(Exception e) {
+			scontext.log( "(()) initialization failed :" + e.getMessage() );
+			e.printStackTrace();
+		}
+	}	
+
+	@Override
+	public void doPost(HttpServletRequest req, HttpServletResponse res)
+			throws IOException {
+	
+		String code = req.getParameter("code");
+		this.getServletContext().log( "((())) : code is : " + code );
+
+		PrintWriter out = res.getWriter();
+		if( code == null ) {
+			try {
+				out.println( interpreter.eval(code).toString() );
+			}
+			catch(Exception e) {
+				out.println( "ERROR"+e.getMessage() );
+			
+			}
+		}
+		else {
+			out.println( "   " );
+		}
+
+	}
+
+}
