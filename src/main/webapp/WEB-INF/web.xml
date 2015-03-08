@@ -8,6 +8,10 @@
 		<servlet-class>ScytheServlet</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>rhino</servlet-name>
+		<servlet-class>RhinoServlet</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>todoServlet</servlet-name>
 		<servlet-class>TodoServlet</servlet-class>
 	</servlet>
@@ -15,6 +19,11 @@
 	<servlet-mapping>
 		<servlet-name>scythe</servlet-name>
 		<url-pattern>/s/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>rhino</servlet-name>
+		<url-pattern>/r/*</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>

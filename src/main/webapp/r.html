@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+        <head>
+        <meta charset="UTF-8">
+                <title>
+                        ** rhino **
+                </title>
+        </head>
+
+        <style>
+                #bar {
+                        margin-left : 200px;
+                        margin-top : 25px;
+                        margin-bottom : 5px;
+                        width : 400px;
+                        height : 1px;
+                        background-color:#778899;
+                }
+
+                #noteform {
+                        margin-left:150px;
+                        background-color:fff8dc;
+                }
+                #notebookname {
+                        margin-left: 200px;
+                        width:200 px;
+
+                }
+                #codebody {
+                        border-color:#778899;
+			height:400px;
+                        border-style:solid;
+                }
+
+                #output {
+
+                        margin-left:150px;
+                        width:600px;
+                        background-color:fff8dc;
+                        border-color:#778899;
+                        border-style:none;
+                }
+                #submitnote {
+                        background-color:grey;
+                        width:140px;
+                        height:30px;
+                        border-style:solid;
+                        border-color:#fff8dc;
+                        color:#fff8dc;
+                }
+                #refresh {
+                        background-color:grey;
+                        width:60px;
+                        height:30px;
+                        border-style:solid;
+                        border-color:#fff8dc;
+                        color:#fff8dc;
+                }
+                #buttons {
+                        margin-left:150px;
+                }
+
+        </style>
+        <body>
+                <script src="./script/jquery.js"></script>
+
+                 <script>
+
+                                $(document).ready(
+                                        function(){
+						console.log('xx ready xx');
+						$('#submitnote').click( function () {
+							console.log( 'submit :' + $('#codebody').val() );
+							$.post( '/r/' , {'code': $('#codebody').val()} , function(data,status) {
+								console.log( 'status:'+status);
+								console.log( 'data:'+data);
+								$('#output').html(data);
+							});
+						});
+						
+                                        });
+
+                </script>
+
+                <div id='notebookname'></div>
+                <div id='noteform'>
+                        <div>
+                                <textarea id='codebody' name="item" rows="3" cols="60"></textarea>
+                        </div>
+                </div>
+                <div id='buttons'>
+                                <input id='submitnote' type='submit' value='Evaluate'/>
+                                <input id='refresh' type='submit' value='Clear'/>
+                </div>
+
+                <div id='bar'></div>
+
+                <div id='output' >
+                </div>
+
+
+                </div>
+
+        </body>
+
+</html>
