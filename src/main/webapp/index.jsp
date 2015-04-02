@@ -25,8 +25,8 @@
 	overflow: auto;
 }
 
-#price {
-	border: 3px;
+#sku {
+	font-family: oldnews;
 }
 
 #desc {
@@ -51,7 +51,6 @@ img {
                         <div id='sku' hidden>@sku</div>\
                         <div hidden>@nname</div>\
                         <div id='desc' >@shortDescription</div>\
-                        <div id='price' >@regularPrice</div>\
                 </div>";
 
 	
@@ -61,7 +60,7 @@ img {
 				function(e) {
 					$.ajax({
 						type : "POST",
-						url : '/rest/product/query/',
+						url : '/mwmonocle/rest/product/query/',
 						data : {
 							'expr' : 'longDescription='+ $('input[name=expr]').val(),
 							'show' : $('input[name=show]').val(),
