@@ -1,5 +1,15 @@
 <html>
 <style>
+@font-face {
+	font-family: 'oldnews';
+	src: url('OldNewspaperTypes.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'moms';
+	src: url('Moms_typewriter-webfont.ttf') format('truetype');
+}
+
 #searchbutton {
 	width: 60px;
 	height: 20px;
@@ -7,33 +17,31 @@
 	display: block;
 }
 
-	
-#box{
-	width:400pxa;
-	border:2px;
-        border-style: solid;
-	border-color:red;
-        margin-left:100px;
-    	overflow:auto;
-}
-#sku{
-    font-family: "Courier New", Times, Sans-serif;
-    font-family: "Arial", Times, serif;
-}
-#desc{
-    font-family: "Arial", Times, serif;
-    font-style:italic;
-}
-img {
-	float:right;
+#box {
+	width: 600px;
+	border: 5px;
+	margin-left: 100px;
+	padding:10px;
+	overflow: auto;
 }
 
+#price {
+	border: 3px;
+}
+
+#desc {
+	font-family: moms;
+	border:3px;
+}
+
+img {
+	float: right;
+}
 </style>
 <body>
 	<h3>How to buy a laptop !</h3>
 
 	<script src="./jquery.js">
-		
 	</script>
 
 	<script>
@@ -42,7 +50,8 @@ img {
                         <img src=\"@image\">\
                         <div id='sku' hidden>@sku</div>\
                         <div hidden>@nname</div>\
-                        <div id='desc' hidden>@desc</div>\
+                        <div id='desc' >@shortDescription</div>\
+                        <div id='price' >@regularPrice</div>\
                 </div>";
 
 	
@@ -52,7 +61,7 @@ img {
 				function(e) {
 					$.ajax({
 						type : "POST",
-						url : '/rest/product/query/',
+						url : '/mwmonocle/rest/product/query/',
 						data : {
 							'expr' : 'longDescription='+ $('input[name=expr]').val(),
 							'show' : $('input[name=show]').val(),
@@ -75,9 +84,11 @@ img {
 
 				function json2ProductDiv(keys,product){
 					a = template;
-					keys.map(function(key){
-						a = a.replace( '@'+key, product[key])
-					});
+					for( var x = 0 ; x < keys.length ; x++ ) {
+						key = keys[x];
+						console.log(key + ":" + product[key]);
+						a = a.replace( '@'+key, product[key]);
+					};
 					return a;
 				}
 				function json2html(x) {
@@ -89,29 +100,24 @@ img {
 					}
 					keys = $('input[name=show]').val().split(',');
 					
-					var table = '<table border=2>row</table>'
-					var row = '<tr><td>key</td><td>value</td></tr>'
+					var result = ''
 					var tmp = template;
 					for (i in products) {
-						productHTML = json2ProductDiv( keys, i)
-						table = table.replace('row', productHTML + 'row')
-						console.log(table);
-						table = table.replace('row', '<tr><td>---</td></tr>row')
+						productHTML = json2ProductDiv( keys, products[i])
+						result = result +  productHTML  ;
 					}
 				
 						
-					table = table.replace('row', '')
-					return table;
+					return result;
 				}
 			})
 	</script>
 	<div>
 		<form name='someform'>
 			<input type="text" name='expr' value='laptop*'> 
-			<input type='text' name='show' value="image,sku,name,shortDescription,regularPrice">
+			<input type='text' name='show' value="image,sku,name,shortDescription,regularPrice"> 
 			<input type='text' name='page' value='1' hidden> 
-			<input type='text' name='pagesize' value='10'hidden>
-				
+			<input type='text' name='pagesize' value='5' >
 		</form>
 		<button id="searchbutton">Get</button>
 	</div>
