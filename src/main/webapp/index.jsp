@@ -61,7 +61,7 @@ img {
 				function(e) {
 					$.ajax({
 						type : "POST",
-						url : '/mwmonocle/rest/product/query/',
+						url : '/rest/product/query/',
 						data : {
 							'expr' : 'longDescription='+ $('input[name=expr]').val(),
 							'show' : $('input[name=show]').val(),
