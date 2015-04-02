@@ -3,6 +3,20 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
+
+ <servlet>
+		<servlet-name>jersey-serlvet</servlet-name>
+		<servlet-class>
+                     com.sun.jersey.spi.container.servlet.ServletContainer
+                </servlet-class>
+		<init-param>
+		     <param-name>com.sun.jersey.config.property.packages</param-name>
+		     <param-value>com.monocle.bestbuy.rest</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+
 	<servlet>
 		<servlet-name>scythe</servlet-name>
 		<servlet-class>ScytheServlet</servlet-class>
@@ -10,10 +24,6 @@
 	<servlet>
 		<servlet-name>rhino</servlet-name>
 		<servlet-class>RhinoServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>coco</servlet-name>
-		<servlet-class>ClojServ</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>todoServlet</servlet-name>
@@ -34,13 +44,15 @@
 		<servlet-name>todoServlet</servlet-name>
 		<url-pattern>/todoServlet</url-pattern>
 	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>coco</servlet-name>
-		<url-pattern>/c/*</url-pattern>
+
+<servlet-mapping>
+		<servlet-name>jersey-serlvet</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
 	</servlet-mapping>
-	
+
+
 	<welcome-file-list>
-        <welcome-file>todo.jsp</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
 </web-app>

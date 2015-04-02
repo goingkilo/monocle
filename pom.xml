@@ -8,6 +8,16 @@
     <groupId>com.monocle.notes</groupId>
     <artifactId>monocle</artifactId>
 
+ 	<repositories>
+                <repository>
+                        <id>maven2-repository.java.net</id>
+                        <name>Java.net Repository for Maven</name>
+                        <url>http://download.java.net/maven/2/</url>
+                        <layout>default</layout>
+                </repository>
+        </repositories>
+
+
     <properties>
         <appengine.app.version>1</appengine.app.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,6 +29,15 @@
 
     <dependencies>
         <!-- Compile/runtime dependencies -->
+
+
+<dependency>
+                <groupId>com.sun.jersey</groupId>
+                <artifactId>jersey-server</artifactId>
+                <version>1.8</version>
+   </dependency>
+
+
         <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-1.0-sdk</artifactId>
@@ -35,11 +54,6 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
-	<dependency>
-		<groupId>com.sun.jersey</groupId>
-		<artifactId>jersey-server</artifactId>
-		<version>1.8</version>
-	</dependency>
 
         <!-- Test Dependencies -->
         <dependency>
@@ -67,6 +81,19 @@
     <artifactId>abcl</artifactId>
     <version>1.0.1</version>
 </dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20141113</version>
+		</dependency>
+
     </dependencies>
 
     <build>
