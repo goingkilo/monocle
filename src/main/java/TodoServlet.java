@@ -58,8 +58,8 @@ public class TodoServlet extends HttpServlet {
 		String item = req.getParameter("item");
 		this.getServletContext().log( "[xxxxx] " + item );
 
-		Key todolistKey = KeyFactory.createKey(KIND_TODOLIST, TODOLIST);
-		Entity todoListItem = new Entity(KIND_TODOLIST_ITEM, todolistKey);
+		Key todolistKey = KeyFactory.createKey("todolist", "TODOLIST");
+		Entity todoListItem = new Entity("todolistitem", todolistKey);
 		todoListItem .setProperty("content", item );
 		todoListItem .setProperty("date", new Date());
 		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -67,7 +67,7 @@ public class TodoServlet extends HttpServlet {
 
 		this.getServletContext().log( "[xxxxx] persisted");
 		//debug
-		Query query = new Query(KIND_TODOLIST_ITEM, todolistKey).addSort("date",Query.SortDirection.DESCENDING);
+		Query query = new Query("todolistitem", todolistKey).addSort("date",Query.SortDirection.DESCENDING);
 		List<Entity> todoListItems = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5));
 		this.getServletContext().log( "[xxxxx] # = " + todoListItems.size());
 		for( Entity e : todoListItems ) {

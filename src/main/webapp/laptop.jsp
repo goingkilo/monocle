@@ -1,14 +1,5 @@
 <html>
 <style>
-@font-face {
-	font-family: 'oldnews';
-	src: url('OldNewspaperTypes.ttf') format('truetype');
-}
-
-@font-face {
-	font-family: 'moms';
-	src: url('Moms_typewriter-webfont.ttf') format('truetype');
-}
 
 #searchbutton {
 	width: 60px;
@@ -25,12 +16,7 @@
 	overflow: auto;
 }
 
-#sku {
-	font-family: oldnews;
-}
-
 #desc {
-	font-family: moms;
 	border:3px;
 }
 
@@ -47,10 +33,11 @@ img {
 	<script>
 
 		var template = "<div id='box'>\
+                        <div >@name</div>\
                         <img src=\"@image\">\
                         <div id='sku' hidden>@sku</div>\
-                        <div hidden>@nname</div>\
                         <div id='desc' >@shortDescription</div>\
+                        <div id='price' >$@regularPrice</div>\
                 </div>";
 
 	
@@ -60,9 +47,9 @@ img {
 				function(e) {
 					$.ajax({
 						type : "POST",
-						url : '/mwmonocle/rest/product/query/',
+						url : '/rest/product/query/',
 						data : {
-							'expr' : 'longDescription='+ $('input[name=expr]').val(),
+							'expr' : $('input[name=expr]').val(),
 							'show' : $('input[name=show]').val(),
 							'page' : $('input[name=page]').val(),
 							'pagesize' : $('input[name=pagesize]')
@@ -85,8 +72,12 @@ img {
 					a = template;
 					for( var x = 0 ; x < keys.length ; x++ ) {
 						key = keys[x];
-						console.log(key + ":" + product[key]);
-						a = a.replace( '@'+key, product[key]);
+						value = product[key]
+						if( key == 'shortDescription') {
+						value = value.replace( /\n/g, '<br>')
+						}
+						console.log(key + ":" +value); 
+						a = a.replace( '@'+key, value);
 					};
 					return a;
 				}
@@ -113,10 +104,10 @@ img {
 	</script>
 	<div>
 		<form name='someform'>
-			<input type="text" name='expr' value='laptop*'> 
-			<input type='text' name='show' value="image,sku,name,shortDescription,regularPrice"> 
-			<input type='text' name='page' value='1' hidden> 
-			<input type='text' name='pagesize' value='5' >
+			<input type="text" name='expr' value='Acer'> 
+			<input hidden type='text' name='show' value="image,sku,name,shortDescription,regularPrice"> 
+			<input hidden type='text' name='page' value='1' > 
+			<input hidden type='text' name='pagesize' value='5' >
 		</form>
 		<button id="searchbutton">Get</button>
 	</div>

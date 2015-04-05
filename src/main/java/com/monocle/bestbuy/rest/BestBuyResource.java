@@ -30,10 +30,10 @@ public class BestBuyResource {
 	@Produces("application/json")
 	@Consumes("application/x-www-form-urlencoded") 
 	public Response getMsg(
-			@DefaultValue("longDescription=black*") @FormParam("expr") String pExpr,
-			@DefaultValue("name,salePrice,image,longDescription") @FormParam("show") String pShow,
-			@DefaultValue("3") @FormParam("page") String pPage,
-			@DefaultValue("15") @FormParam("pagesize") String pPageSize
+			@FormParam("expr") String pExpr,
+			@FormParam("show") String pShow,
+			@FormParam("page") String pPage,
+			@FormParam("pagesize") String pPageSize
 			) {
 		System.out.println ("++++++++++++++++++++++++++++++++++++++++++++");
 		System.out.println (pExpr);
@@ -41,11 +41,12 @@ public class BestBuyResource {
 		System.out.println (pPage);
 		System.out.println (pPageSize);
 
-		String url = "http://api.remix.bestbuy.com/v1/products(EXPR)?show=SHOW&pageSize=PAGESIZE&page=PAGE&apiKey=xsq2hy53xq74mhrrkt7ex6s5&format=json";
-		url = url.replace( "EXPR", pExpr);
-		url =url.replace("SHOW",pShow);
-		url =url.replace("PAGESIZE",pPageSize);
-		url =url.replace("PAGE",pPage);
+		//laptop category = "id": "pcmcat247400050000" categorypathid = abcat0502000
+               	String url = "http://api.remix.bestbuy.com/v1/products((search=EXPR)&(categoryPath.id=abcat0502000))?show=SHOW&pageSize=PAGESIZE&page=PAGE&apiKey=xsq2hy53xq74mhrrkt7ex6s5&format=json";
+		url = url.replace( "EXPR", pExpr.trim());
+		url =url.replace("SHOW",pShow.trim());
+		url =url.replace("PAGESIZE",pPageSize.trim());
+		url =url.replace("PAGE",pPage.trim());
 		System.out.println (">>"+url);
 		String json = getJSON(url);
 		System.out.println (">>\n" + json);
