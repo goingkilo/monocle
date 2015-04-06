@@ -1,3 +1,4 @@
+package com.monocle.bestbuy.rest;
 
 import java.io.IOException;
 import java.util.Date;
@@ -49,7 +50,7 @@ public class Store {
 
 
         @POST
-	@Path("/put")
+	@Path("/put/{kind}/{key}/{name}/{value}")
         public Response put(
                         @FormParam("kind") String kind,
                         @FormParam("key") String key,
@@ -67,7 +68,7 @@ public class Store {
 	}
 
 	@GET
-	@Path("/get")
+	@Path("/get/{kind}/{key}/{sortColumn}/{rows}")
 	public Response get( @PathParam("kind") String kind, @PathParam("key") String key ,@PathParam("sortColumn") String sortColumn, @PathParam("rows") int rows) {
 		Key keykey = KeyFactory.createKey(kind,key);
 		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -77,6 +78,7 @@ public class Store {
 		for(Entity e : items) {
 			s.append( e.getProperty(sortColumn) );
 		}
+		System.out.println( "RESPONSE:"+ s.toString() );
 		return Response.status(200).entity(s.toString()).build();
 	}
 }
