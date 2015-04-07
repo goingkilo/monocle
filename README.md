@@ -10,27 +10,23 @@ seriously. evernote. would you let an elephant do your taxes ? no ? then why is 
 scriptocle : learn common lisp from the comfort of your own home !  
 avoid all the static coding. use a dynamic language to deal with server side code
 
-ichingocle : could use some history
-monocle : could use some user management -authentication,roles, pages, permissions etc.
+1. ichingocle : could use some history - and description/interpretation
+2. monocle : could use some user management -authentication,roles, pages, permissions etc.
 that way monocle can also remember sequence of ichings, locations
-
-locationocle : get location to me. browser/mobile ?
-
-notocle - could use history, sorting,tagging, etc. also font needs to go
-
-scriptocle - no work
-
-todo:
-objectify for userocle
--add entry ,tag, update count
-- html templates ?
-- markdown for notes
-passwords 
+3. locationocle : get location to me. browser/mobile ?
+4. notocle - could use history, sorting,tagging, etc. also font needs to go, also passwords, also email
+5. scriptocle - no work
+6. 2 needs 'objectify for userocle
+7. when adding an entry to db, update count !
+8. - html templates ?
+9. - markdown for notes
+10 . passwords 
 receive emails ,trigger action based on that
 send notes via email
 autocorp
 autoart
 champion-challenger ?
+personal data. photo upload!
 
 
 
