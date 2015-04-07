@@ -22,7 +22,9 @@ scriptocle - no work
 
 todo:
 objectify for userocle
-
+#add entry ,tag, update count
+#html templates ?
+passwords 
 
 
 
