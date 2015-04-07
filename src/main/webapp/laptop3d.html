@@ -23,21 +23,19 @@
 img {
 	float: right;
 }
-#name1{
-	border-style:solid;
-}
 </style>
 <body>
-	<h3>How to buy a laptop !</h3>
 
-	<script src="./jquery.js">
+ 	<script src="processing.min.js"></script>
+        <script src="jquery-1.11.2.min.js"></script>
+
 	</script>
 
 	<script>
 
 		var template = "<div id='box'>\
-                        <div id='name1'>@name</div>\
-                        <a href=\"@addToCartUrl\" ><img src=\"@image\"></a>\
+                        <div >@name</div>\
+                        <a href="@addToCartUrl" hidden><img src=\"@image\"></a>\
                         <div id='sku' hidden>@sku</div>\
                         <div id='desc' >@shortDescription</div>\
                         <div id='price' >$@regularPrice</div>\
@@ -108,11 +106,13 @@ img {
 	<div>
 		<form name='someform'>
 			<input type="text" name='expr' value='Acer'> 
-			<input hidden type='text' name='show' value="image,sku,name,shortDescription,longDescription,regularPrice,addToCartUrl"> 
+			<input hidden type='text' name='show' value="image,sku,name,shortDescription,regularPrice,addToCartUrl"> 
 			<input hidden type='text' name='page' value='1' > 
 			<input hidden type='text' name='pagesize' value='5' >
 		</form>
-		<button id="searchbutton">Get</button>
+     	<button><img src="http://img.bbystatic.com/BestBuy_US/images/products/5009/5009309_sc.jpg"></button>
+	<canvas data-processing-sources="3d.pde"></canvas>
+
 	</div>
 	<div id="result"></div>
 	<div id="raw" hidden></div>

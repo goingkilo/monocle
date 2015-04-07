@@ -1,4 +1,4 @@
-package com.monocle.bestbuy.rest;
+package com.monocle.util;
 
 import java.io.IOException;
 import java.util.Date;
@@ -45,7 +45,7 @@ import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.Query;
 
-@Path("/util")
+@Path("/store")
 public class Store {
 
 

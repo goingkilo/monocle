@@ -27,7 +27,11 @@ autocorp
 autoart
 champion-challenger ?
 personal data. photo upload!
+broser gps
+download notes as a zip
+bootstrap themes ?
+3d with text and real sorted values
+soothing music ?
 
-
-
-
+refactor meeeee
+james bond hunter and vegetable hunter together ?
