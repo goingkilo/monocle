@@ -1,34 +1,39 @@
 
 float xpos = 100, ypos = 100, zpos = 100, posd = 10;
 float xtilt, ytilt, ztilt, tiltd = 1.5f;
+PFont font;
+
 
 void setup() {
-   size( 600, 600, P3D);
-   background(254);
-   boxCity();
+    size( 600, 600, P3D);
+    background(254);
+    font = loadFont("FFScala.ttf");
+    textFont(font, 14); 
+
+    boxCity();
 }
 
 void draw() {
-  background(254);
-
-  translate( xpos, ypos, zpos);
-  //rotate( 0, xpos, ypos, zpos);
-  rotateX( radians( xtilt ));
-  rotateY( radians( ytilt ));
-  rotateZ( radians( ztilt ));
-  fill(0);
-  box(10);
-  boxCity();
-  //drawMovingBox();
-  
+    background(254);
+    text("word", 10, 50);
+    
+    translate( xpos, ypos, zpos);
+    //rotate( 0, xpos, ypos, zpos);
+    rotateX( radians( xtilt ));
+    rotateY( radians( ytilt ));
+    rotateZ( radians( ztilt ));
+    fill(0);
+    box(10);
+    boxCity();
+    //drawMovingBox();
 }
 
 void drawMovingBox(){
-  pushMatrix();
-  translate( xpos, ypos, zpos);
-  fill( 0,0,100);
-  box(10);
-  popMatrix();
+    pushMatrix();
+    translate( xpos, ypos, zpos);
+    fill( 0,0,100);
+    box(10);
+    popMatrix();
 }
 
 void boxCity() {
@@ -38,7 +43,9 @@ void boxCity() {
         pushMatrix();
         translate( i*100,j*100,k*100);
         fill( 250 - i , 250 - k, 0);
-        box( 10);
+        //box( 10);
+        fill(0,0,100);
+        text(i+","+j+","+k, 0, 0, 0);
         popMatrix();
       }
     }
@@ -61,11 +68,13 @@ void keyPressed() {
       case RIGHT :
         xpos -= posd;
          break;
-      case java.awt.event.KeyEvent.VK_PAGE_DOWN :
+      case ALT :
         ypos -= posd;
+        println("UP U");
         break;
-       case java.awt.event.KeyEvent.VK_PAGE_UP :
+       case CONTROL :
          ypos += posd;
+         println("DOWN U");
     }
   }
   else {
