@@ -22,9 +22,15 @@ scriptocle - no work
 
 todo:
 objectify for userocle
-#add entry ,tag, update count
-#html templates ?
+-add entry ,tag, update count
+- html templates ?
+- markdown for notes
 passwords 
+receive emails ,trigger action based on that
+send notes via email
+autocorp
+autoart
+champion-challenger ?
 
 
 
