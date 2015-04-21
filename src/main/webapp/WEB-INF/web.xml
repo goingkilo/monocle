@@ -18,6 +18,10 @@
 
 
 	<servlet>
+		<servlet-name>storeservlet</servlet-name>
+		<servlet-class>StoreServlet</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>scythe</servlet-name>
 		<servlet-class>ScytheServlet</servlet-class>
 	</servlet>
@@ -45,9 +49,13 @@
 		<url-pattern>/todoServlet</url-pattern>
 	</servlet-mapping>
 
-<servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>jersey-serlvet</servlet-name>
 		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>storeservlet</servlet-name>
+		<url-pattern>/storeservlet/*</url-pattern>
 	</servlet-mapping>
 
 

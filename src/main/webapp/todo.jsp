@@ -22,9 +22,6 @@
 </head>
 
 <body>
-<audio id="click">
-  <source src="typewriter_9744_horn.wav">
-</audio>
 <script src="script/jquery.js"></script>
 <script>
 	$('textarea').on('keypress','textarea', function (e) {

@@ -16,13 +16,6 @@
                 border : 5px;
         }
 
-        {
-                font-family : oldnews;
-        }
         textarea {
-                font-family : moms;
 		border:none;
         }
-	#unit {
-		font-family:oldnews;
-	}

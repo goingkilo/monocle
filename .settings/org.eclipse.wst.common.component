@@ -14,6 +14,12 @@
     <dependent-module archiveName="jersey-core-1.8.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/sun/jersey/jersey-core/1.8/jersey-core-1.8.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
+    <dependent-module archiveName="jersey-multipart-1.8.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/sun/jersey/contribs/jersey-multipart/1.8/jersey-multipart-1.8.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <dependent-module archiveName="mimepull-1.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/jvnet/mimepull/1.4/mimepull-1.4.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
     <dependent-module archiveName="appengine-api-1.0-sdk-1.9.17.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/google/appengine/appengine-api-1.0-sdk/1.9.17/appengine-api-1.0-sdk-1.9.17.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>

@@ -25,8 +25,6 @@ img {
 	float: right;
 }
 #name1{
-	border-style:solid;
-	border: 1px;
 }
 </style>
 <body>
@@ -36,10 +34,14 @@ img {
 	</script>
 
 	<script>
+		function OpenInNewTab(url) {
+			var win = window.open(url, '_blank');
+  			win.focus();
+		}
 
 		var template = "<div id='box'>\
                         <div id='name1'>@name</div>\
-                        <a href=\"@addToCartUrl\" ><img src=\"@image\"></a>\
+                        <a href=\"javascript:OpenInNewTab('@addToCartUrl')\" ><img src=\"@image\"></a>\
                         <div id='sku' hidden>@sku</div>\
                         <div id='desc' >@shortDescription</div>\
                         <div id='price' >$@regularPrice</div>\
@@ -115,6 +117,9 @@ img {
 			<input hidden type='text' name='pagesize' value='5' >
 		</form>
 		<button id="searchbutton">Get</button>
+	</div>
+	<div id="result"></div>
+	<div id="raw" hidden></div>
 	</div>
 	<div id="result"></div>
 	<div id="raw" hidden></div>
