@@ -28,8 +28,9 @@ img {
 }
 </style>
 <body>
-	<h3>Search for a laptop !</h3>
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<h3>How to buy a laptop !</h3>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -112,38 +113,33 @@ img {
 				}
 			})
 	</script>
-	<div>
         <div class="row">
           <div class="col-md-12">
                 <div class="panel panel-default">
                         <div class="panel-body">
-
-		<form name='someform'>
-			<input type="text" name='expr' value='Acer'> 
-			<input hidden type='text' name='show' value="image,sku,name,shortDescription,longDescription,regularPrice,addToCartUrl"> 
-			<input hidden type='text' name='page' value='1' > 
-			<input hidden type='text' name='pagesize' value='5' >
-		</form>
-		<button id="searchbutton">Get</button>
-			 </div>
-                </div>
-          </div>
-        </div>
-
-
-	</div>
- <div class="row">
-          <div class="col-md-4 col-md-offset-4">
-                <div class="panel panel-default">
-                        <div class="panel-body">
-                                first laptop
-	<div id="result"></div>
+				<div>
+					<form name='someform'>
+						<input type="text" name='expr' value='Acer'> 
+						<input hidden type='text' name='show' value="image,sku,name,shortDescription,longDescription,regularPrice,addToCartUrl"> 
+						<input hidden type='text' name='page' value='1' > 
+						<input hidden type='text' name='pagesize' value='5' >
+					</form>
+					<button id="searchbutton">Get</button>
+				</div>
                         </div>
                 </div>
           </div>
         </div>
-	<div id="raw" hidden></div>
-	</div>
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                        <div class="panel-body">
+                                first laptop
+                        </div>
+                </div>
+          </div>
+        </div>
+
 	<div id="result"></div>
 	<div id="raw" hidden></div>
 </body>
